@@ -1,0 +1,309 @@
+
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>UD. ZULFADRI</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@picocss/pico@1/css/pico.min.css">
+    <style>
+        /* Global Styles */
+        body {
+            background: url('https://milestone.co.id/uploads/src.jpg') no-repeat center center fixed;
+            background-size: cover;
+            color: #FAFAFA;
+            font-family: 'Arial', sans-serif;
+            scroll-behavior: smooth;
+            overflow-x: hidden;
+        }
+
+        /* Logo Styling */
+        .logo {
+            position: fixed;
+            top: 10px;
+            right: 20px;
+            font-size: 28px;
+            font-weight: bold;
+            text-transform: uppercase;
+            color: #FFFFFF;
+            background: linear-gradient(45deg, #841818, #E0BB20, #000000);
+            background-size: 300% 300%;
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            animation: gradient 3s infinite;
+            z-index: 9999;
+        }
+
+        @keyframes gradient {
+            0% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+            100% { background-position: 0% 50%; }
+        }
+
+        /* Navigation Styling */
+        header nav {
+            position: absolute;
+            top: 10px;
+            left: 20px;
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+        }
+
+        header nav ul {
+            list-style: none;
+            margin: 0;
+            padding: 0;
+        }
+
+        header nav ul li a {
+            text-decoration: none;
+            color: #E0BB20;
+            padding: 10px 20px;
+            border-radius: 10px;
+            transition: all 0.3s ease;
+        }
+
+        header nav ul li a:hover,
+        header nav ul li a.active {
+            color: #FFFFFF;
+            background: #E0BB20;
+            box-shadow: 0 0 20px rgba(224, 187, 32, 1);
+        }
+
+        /* Section Styling */
+        main, section {
+            text-align: center;
+            padding: 60px 20px;
+            margin: 20px auto;
+            background: rgba(0, 0, 0, 0.85);
+            border-radius: 10px;
+            box-shadow: 0 0 30px rgba(255, 0, 0, 0.8);
+        }
+
+        h2 {
+            color: #E0BB20;
+            text-shadow: 0 0 10px #E0BB20;
+        }
+
+        p {
+            color: #FAFAFA;
+        }
+
+        /* Divider Line */
+        .divider {
+            width: 80%;
+            height: 3px;
+            margin: 40px auto;
+            background: linear-gradient(to right, #FF0000, transparent, #FF0000);
+            box-shadow: 0 0 15px #FF0000;
+        }
+
+        /* Photo with Red Glow */
+        .photo-red-glow {
+            display: inline-block;
+            margin: 10px;
+            position: relative;
+        }
+
+        .photo-red-glow img {
+            width: 200px;
+            border-radius: 10px;
+            transition: transform 0.3s ease;
+        }
+
+        .photo-red-glow:hover img {
+            transform: scale(1.1);
+        }
+
+        .photo-red-glow::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            border-radius: 10px;
+            background: rgba(255, 0, 0, 0.8);
+            box-shadow: 0 0 30px rgba(255, 0, 0, 1);
+            z-index: -1;
+            transition: transform 0.3s ease;
+        }
+
+        .photo-red-glow:hover::before {
+            transform: scale(1.2);
+        }
+
+        /* Button Pesan Sekarang */
+        button.whatsapp-glow {
+            background-color: #FF0000;
+            border: none;
+            color: #FFFFFF;
+            padding: 10px 20px;
+            font-size: 16px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            border-radius: 10px;
+            box-shadow: 0 0 15px rgba(255, 0, 0, 0.8);
+        }
+
+        button.whatsapp-glow:hover {
+            transform: scale(1.1);
+            box-shadow: 0 0 30px rgba(255, 0, 0, 1);
+        }
+
+        /* Animasi Scroll */
+        .animate-fade-in {
+            opacity: 0;
+            transform: translateY(20px);
+            transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+        }
+
+        .animate-fade-in.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        /* Footer Navigation */
+        .footer-nav {
+            text-align: center;
+            margin: 20px auto;
+            background: rgba(255, 255, 255, 0.9);
+            border-radius: 15px;
+            box-shadow: 0 0 20px rgba(224, 187, 32, 0.8);
+            padding: 10px;
+            width: fit-content;
+        }
+
+        .footer-nav ul {
+            display: flex;
+            gap: 20px;
+            list-style: none;
+            justify-content: center;
+        }
+
+        .footer-nav ul li a {
+            text-decoration: none;
+            color: #000000;
+            padding: 10px 20px;
+            background: #FFFFFF;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(224, 187, 32, 0.8);
+            transition: all 0.3s ease;
+        }
+
+        .footer-nav ul li a:hover {
+            color: #FFFFFF;
+            background: #E0BB20;
+            box-shadow: 0 0 25px rgba(224, 187, 32, 1);
+        }
+    </style>
+</head>
+<body>
+    <div class="logo">UD. ZULFADRI</div>
+
+    <header>
+        <nav>
+            <ul>
+                <li><a href="#home">Home</a></li>
+                <li><a href="#about">About</a></li>
+                <li><a href="#services">Services</a></li>
+                <li><a href="#contact">Contact</a></li>
+                <li><a href="#maps">Maps</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main id="home" class="container animate-fade-in">
+        <section>
+            <h2>Selamat Datang di UD. ZULFADRI</h2>
+            <p>Kami adalah toko kelontong terpercaya yang menyediakan berbagai kebutuhan sehari-hari dengan harga yang sangat terjangkau. 
+                Baik untuk pembelian grosir atau eceran, kami siap melayani Anda dengan produk berkualitas dan pelayanan terbaik. UD Zulfadri hadir untuk memudahkan Anda berbelanja dengan cara yang praktis dan efisien..</p>
+            <p>UD Zulfadri menyediakan berbagai macam produk mulai dari bahan makanan, minuman, produk rumah tangga, hingga kebutuhan lainnya, baik dalam jumlah besar (grosir) maupun dalam jumlah kecil (eceran). Kami melayani pelanggan perorangan maupun bisnis yang membutuhkan pasokan barang secara rutin. Dengan stok yang selalu tersedia, Anda bisa membeli apa saja dengan harga yang sangat bersaing.</p>
+            <p>Kami memahami pentingnya kenyamanan dalam berbelanja, itulah mengapa Anda bisa langsung memesan produk kami melalui WhatsApp. Cukup klik tombol 'Pesan Sekarang' di bawah ini, dan Anda akan terhubung langsung dengan tim kami untuk melakukan pemesanan atau bertanya seputar produk. Kami siap membantu Anda kapan saja!</p>
+            <p>Nikmati kemudahan berbelanja tanpa perlu khawatir dengan biaya pengiriman, karena kami memberikan GRATIS ONGKIR untuk semua pesanan Anda! Selain itu, Anda juga bisa memilih metode pembayaran COD (Cash on Delivery) untuk lebih memudahkan transaksi Anda. Bayar ketika barang sudah sampai di tangan Anda!</p>
+            <p>Di UD Zulfadri, kami berkomitmen untuk memberikan pengalaman belanja yang terbaik bagi setiap pelanggan. Kami selalu mengutamakan kepuasan Anda dengan menyediakan produk berkualitas, pengiriman cepat, dan layanan pelanggan yang ramah. Terima kasih telah memilih kami sebagai mitra belanja Anda!</p>
+            <div class="photo-red-glow">
+                <img src="https://ordersinseconds.com/wp-content/uploads/2023/02/wholesale-distributor-warehouse-jpg.webp" alt="Foto Home 1">
+            </div>
+            <div class="photo-red-glow">
+                <img src="https://images.bisnis.com/posts/2022/12/01/1603973/distributor_freepik_1669821600.jpg" alt="Foto Home 2">
+            </div>
+        </section>
+        <div class="divider"></div>
+    </main>
+
+    <section id="about" class="animate-fade-in">
+        <h2>Tentang Kami</h2>
+        <p>UD Zulfadri adalah toko kelontong yang telah berdiri sejak bertahun-tahun lalu dengan tujuan untuk memberikan akses mudah dan terjangkau kepada masyarakat dalam memenuhi kebutuhan sehari-hari. Kami melayani berbagai jenis pembelian, baik grosir maupun eceran, untuk memenuhi kebutuhan perorangan, keluarga, maupun bisnis. Dengan berbagai produk yang selalu tersedia mulai dari bahan makanan, minuman, produk kebersihan, hingga barang kebutuhan rumah tangga lainnya, kami berkomitmen untuk menyediakan produk berkualitas dengan harga yang sangat bersaing. Kami percaya bahwa setiap pelanggan berhak mendapatkan yang terbaik, baik dari segi produk maupun pelayanan.</p>
+        <div class="divider"></div>
+    </section>
+
+    <section id="services" class="animate-fade-in">
+        <h2>Layanan Kami</h2>
+        <p> kami menyediakan berbagai layanan untuk memudahkan belanja kebutuhan Anda. Kami melayani pembelian grosir dan eceran dengan harga terjangkau, serta menawarkan kemudahan pemesanan melalui WhatsApp untuk kenyamanan Anda. Selain itu, kami memberikan gratis ongkir untuk semua pesanan dan menyediakan opsi pembayaran Cash on Delivery (COD), sehingga Anda bisa membayar langsung saat barang diterima. Kami juga memastikan kualitas setiap produk yang kami jual, sehingga Anda selalu mendapatkan barang terbaik dengan pelayanan yang ramah dan efisien.</p>
+        <div class="photo-red-glow">
+            <img src="https://cdn-oss.ginee.com/official/wp-content/uploads/2021/07/image-256.png" alt="Foto Service 1">
+        </div>
+        <div class="photo-red-glow">
+            <img src="https://palapanews.com/wp-content/uploads/2022/09/Layanan-Jasa-Kurir.jpg" alt="Foto Service 2">
+        </div>
+        <div class="divider"></div>
+    </section>
+
+    <section id="contact" class="animate-fade-in">
+        <h2>Hubungi Kami</h2>
+        <img src="https://png.pngtree.com/png-clipart/20220730/original/pngtree-logo-icon-gratis-ongkir-ke-seluruh-indonesia-dengan-truck-cargo-png-png-image_8442018.png" alt="Logo Gratis Ongkir" style="width: 100px; margin-bottom: 20px;">
+        <p>Butuh bantuan atau ingin memesan produk? Hubungi kami sekarang juga!</p>
+        <button class="whatsapp-glow" onclick="window.open('https://wa.me/081363335129')">klik ini untuk bertanya dan memesan</button>
+        <div class="divider"></div>
+    </section>
+
+    <section id="maps" class="animate-fade-in">
+        <h2>Lokasi Kami</h2>
+        <p>Koto Baru, Kec. Bayang, Kabupaten Pesisir Selatan, Sumatera Barat 25652</p>
+        <iframe 
+            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d997.5930452824623!2d100.67545562922518!3d-1.4064068994891037!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2fd7c21b3959a7df%3A0x8e7a3df916a04e84!2sKoto%20Baru%2C%20Bayang%2C%20Kabupaten%20Pesisir%20Selatan%2C%20Sumatera%20Barat%2025652!5e0!3m2!1sen!2sid!4v1693825224325!5m2!1sen!2sid" 
+            width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+        <div class="divider"></div>
+    </section>
+
+    <div class="footer-nav">
+        <ul>
+            <li><a href="#home">Home</a></li>
+            <li><a href="#about">About</a></li>
+            <li><a href="#services">Services</a></li>
+            <li><a href="#contact">Contact</a></li>
+            <li><a href="#maps">Maps</a></li>
+        </ul>
+    </div>
+
+    <script>
+        // Smooth scroll when clicking on navigation links
+        document.querySelectorAll('nav ul li a').forEach(link => {
+            link.addEventListener('click', function(e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                target.scrollIntoView({ behavior: 'smooth' });
+
+                // Highlight active link
+                document.querySelectorAll('nav ul li a').forEach(a => a.classList.remove('active'));
+                this.classList.add('active');
+            });
+        });
+
+        // Fade-in animation
+        const observer = new IntersectionObserver(entries => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('visible');
+                }
+            });
+        });
+
+        document.querySelectorAll('.animate-fade-in').forEach(element => {
+            observer.observe(element);
+        });
+    </script>
+</body>
+</html>
